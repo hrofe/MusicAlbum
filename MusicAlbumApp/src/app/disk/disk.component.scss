@@ -1,0 +1,76 @@
+$default-float: left;
+$opposite-float: right;
+
+.img-responsive {
+    display: block;
+    height: auto;
+    max-width: 100%;
+  }
+
+  .divPointer{
+    cursor: pointer;
+  }
+  
+  .divFloatRight {
+    float: $default-float;
+  }
+  
+  .divFloatLeft {
+    float: $opposite-float;
+  }
+  
+  .albumDiv {
+    border: 1px solid var(--black);
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    margin: 5px;
+  }
+  
+  .dateText {
+    color: var(--red);
+  }
+  
+  .titleText {
+    font-size: 18px;
+    color: var(--blue);
+  }
+
+  .contentText{
+    font-size: 16px;
+    color:var(--black);
+  }
+  
+  .divPadding {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  
+  .cityTitleAlign {
+    -webkit-align-items: center;
+    align-items: center;
+  }
+  
+  .cityTitle {
+    font-size: 20px;
+  }
+  
+  .divPaddingBottom {
+    padding-bottom: 10px;
+  }
+  
+  .divPaddingTop {
+    padding-top: 10px;
+  }
+  
+  .searchBox {
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    width: 50%;
+  }
+
+  .textCenter{
+    text-align: center;
+  }
+  

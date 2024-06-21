@@ -1,0 +1,20 @@
+
+    <div class="row divPointer albumDiv titleText divPadding" (click)="goToDiskDetails(disk)">
+        <div class="col-1">
+            <img class="img-responsive" src="{{disk.img}}" alt=""/>
+        </div>
+        <div class="col-7">
+            <span class="titleText">Title:</span><br>
+            <span class="contentText">
+                {{disk.name}}
+            </span>
+        </div>
+        <div class="col-4">
+            <span class="titleText"> Release Date:</span><br>
+            <span class="contentText">
+                {{disk.release_date.$date}}
+            </span>
+        </div>
+    </div>
+
+

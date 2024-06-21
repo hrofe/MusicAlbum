@@ -1,0 +1,46 @@
+
+<div class="row">
+ <div class="col">
+    <button class="btn btn-primary" (click)="returnToList()">returnToList</button>
+
+ </div>
+</div>
+<div class="row textCenter">
+  
+    <span class="albumTitle">
+      {{selectedDisk.name}}
+    </span>
+</div>
+
+<div class="row divPaddingTop">
+  <div class="col-6">
+    <img class="img-responsive" src="{{selectedDisk.img}}" alt=""/>
+  </div>
+  <div class="col-6">
+    <span class="titleText"> Release Date:</span><br>
+    <span class="contentText">
+        {{selectedDisk.release_date.$date}}
+    </span>
+  </div>
+</div>
+
+<div class="row divPaddingTop">
+  <span class="trackTitle"> Tracks:</span>
+  <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
+                <div *cdkVirtualFor="let songtrack of  selectedDisk.tracks;" class="example-item"> 
+                  <div class="row">
+                    <div class="col-6">
+                        <span class="titleText">Name:</span><br>
+                        <span class="contentText">{{songtrack.name}}</span>
+                    </div>
+                    <div class="col-6">
+                      <span class="titleText">Duration:</span><br>
+                      <span class="contentText">{{songtrack.duration}}</span>
+                    </div>
+                  </div>
+                </div>
+        
+        </cdk-virtual-scroll-viewport>
+
+
+</div>

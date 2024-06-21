@@ -1,0 +1,121 @@
+<p>registration works!</p>
+
+<div class="row">
+    <div class="col">
+       <button class="btn btn-primary" (click)="returnToList()">returnToList</button>
+   
+    </div>
+
+
+    <div class="card m-3">
+      <h5 class="card-header">User Registration</h5>
+      <div class="card-body">
+        <form [formGroup]="form">
+          <div class="row">
+            <div class="col-6 mb-3">
+              <label class="form-label">
+                Email
+                @if(form.get('email')?.errors &&
+                form.get('email')?.hasError('email')){
+                <span class="text-danger">*</span>
+                }
+              </label>
+              <input type="text" formControlName="email" class="form-control"
+                     [class.valid]="form.get('email')?.valid &&
+                                  (form.get('email')?.dirty || form.get('email')?.touched)"
+                     [class.invalid]="form.get('email')?.invalid &&
+                                    (form.get('email')?.dirty || form.get('email')?.touched)" />         
+            </div>
+            <div class="col-6 mb-3">
+              @if(form.get('email')?.invalid && form.get('email')?.errors &&
+              (form.get('email')?.dirty || form.get('email')?.touched)){
+              @if(form.get('email')?.hasError('required')){
+              <small class="text-danger">
+                This field is required.
+              </small>
+              }
+              @if(form.get('email')?.hasError('pattern')){
+               <small class="text-danger">
+                 Not Valid Email Format
+               </small>
+               }
+              }
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6 mb-3">
+              <label class="form-label">
+                User Name
+                @if(form.get('username')?.errors &&
+                form.get('username')?.hasError('required')){
+                <span class="text-danger">*</span>
+                }
+              </label>
+              <input type="text" formControlName="username"
+                     class="form-control"
+                     [class.valid]="form.get('username')?.valid &&
+                                  (form.get('username')?.dirty || form.get('username')?.touched)"
+                     [class.invalid]="form.get('username')?.invalid &&
+                                   (form.get('username')?.dirty || form.get('username')?.touched)" />
+            </div>
+            <div class="col-6 mb-3">
+              @if(form.get('username')?.invalid && form.get('username')?.errors &&
+              (form.get('username')?.dirty || form.get('username')?.touched)){
+              <div class="">
+                @if(form.get('username')?.hasError('required')){
+                <small class="text-danger">
+                  This field is required.
+                </small>
+                }
+                @if(form.get('username')?.hasError('pattern')){
+                <small class="text-danger">
+                  Only English characters and numbers (no spaces).
+                </small><br/>
+                <small class="text-danger">
+                  Cannot start with a number.
+                </small>
+                }
+              </div>
+              }
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6 mb-3">
+              <label class="form-label">
+               password
+                @if(form.get('password')?.errors &&
+                form.get('password')?.hasError('required')){
+                <span class="text-danger">*</span>
+                }
+              </label>
+              <input type="text" formControlName="password"
+                     class="form-control"
+                     [class.valid]="form.get('password')?.valid &&
+                 (form.get('password')?.dirty || form.get('password')?.touched)"
+                     [class.invalid]="form.get('password')?.invalid &&
+                  (form.get('password')?.dirty || form.get('password')?.touched)" />
+            </div>
+            <div class="col-6 mb-3">
+              @if(form.get('password')?.invalid &&
+              form.get('password')?.errors &&
+              (form.get('password')?.dirty || form.get('password')?.touched)){
+              <div>
+                @if(form.get('password')?.hasError('required')){
+                <small class="text-danger">
+                  This field is required.
+                </small>
+                }
+                @if(form.get('password')?.hasError('pattern')){
+                <small class="text-danger">
+                  at least 1 uppercase letter, 1 number and no spaces.
+                </small>
+                }
+              </div>
+              }
+            </div>
+          </div>
+         
+        </form>
+      </div>
+    </div>
+    

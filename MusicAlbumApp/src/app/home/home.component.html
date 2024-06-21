@@ -1,0 +1,54 @@
+
+<div class="row">
+    <div class="col-8"> 
+        <input type="text"
+        placeholder="Search for a Album"
+        class="example-input searchBox"
+        [(ngModel)]="searchTerm">
+        <button class="btn btn-primary" (click)="searchAlbumByName()"> Serach</button>
+    </div>
+    <div class="col-4">
+        <a class="divPointer" (click)="goToRegistrationPage()">
+            <span>Registration</span>
+        </a>
+    </div>
+</div>
+<div class="row divPaddingTop">
+    <div class="col-10">
+        @if(disks.length>0){
+            <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
+                <div *cdkVirtualFor="let disk of disks;" class="example-item"> 
+                    <app-disk [disk]="disk"></app-disk>
+                </div>
+        
+        </cdk-virtual-scroll-viewport>
+        }
+        @else {
+            <span> There are no Results</span>
+        }
+       
+      <!--  @for(disk of disks; let i = $index; track disk){
+           
+        }
+        @empty{
+            <span> There are no Results</span>
+            }-->
+    </div>
+    <div class="col-2">
+        <span> Last 5 Searches</span> <br/>
+        @for(queue of searchQueue; let i = $index; track queue){
+            <div class="col">
+               <ul>
+                <li>
+                    <span>{{queue}}</span>
+                </li>
+               </ul> 
+            </div>
+           
+        } 
+        @empty{
+            <span> There where no Searches</span>
+            }
+    </div>
+</div>
+
